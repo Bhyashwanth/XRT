@@ -226,7 +226,7 @@ all:
     image {
         id = 0x1c000000, name=apu_subsystem
         { core=a72-0, exception_level=el-3, trustzone, file=$IMAGES_DIR/bl31.elf }
-        { core=a72-0, exception_level=el-2, file=$IMAGES_DIR/u-boot.elf }
+        { core=a72-0, exception_level=el-2, file=/scratch/test/XRT/build/versal/images/linux/u-boot.elf }
         { load=$ROOTFS_ADDR, file=$IMAGES_DIR/rootfs.cpio.gz.u-boot }
         { load=$KERNEL_ADDR, file=$IMAGE_UB }
         { load=$BT_SCR_ADDR, file=$BUILD_DIR/boot.scr }
@@ -339,4 +339,4 @@ else
     cp -v $BUILD_DIR/${PKG_NAME}*.rpm $OUTPUT_DIR/${PKG_NAME}_${PKG_RELEASE}.${PKG_VER}.noarch.rpm
     cp -v $BUILD_DIR/${PKG_NAME}*.deb $OUTPUT_DIR/${PKG_NAME}_${PKG_RELEASE}.${PKG_VER}_all.deb
 fi
-rm -rf $BUILD_DIR
+#rm -rf $BUILD_DIR
